@@ -42,3 +42,90 @@ export const Staticdata: ProductSection[] = [
     ],
   },
 ];
+
+export const conditions = [
+  {
+    id: '1',
+    title: 'Anxiety',
+    image: require('../../assets/images/anxiety.png'),
+  },
+  {
+    id: '2',
+    title: 'Acid Reflux',
+    image: require('../../assets/images/acidReflux.png'),
+  },
+  {
+    id: '3',
+    title: 'Diabetes',
+    image: require('../../assets/images/diabties.png'),
+  },
+  {
+    id: '4',
+    title: 'Allergies',
+    image: require('../../assets/images/Allergies.png'),
+  },
+];
+
+export const trendingDeals = [
+  {
+    id: '1',
+    title: 'MOM & Baby',
+    tag: 'OFF',
+    image: imagePath.TrendOneProduct,
+  },
+  {
+    id: '2',
+    title: 'Personal Care',
+    tag: 'OFF',
+    image: imagePath.TrendOneProduct,
+  },
+  {
+    id: '3',
+    title: 'Skin Offers',
+    tag: 'OFF',
+    image: imagePath.TrendOneProduct,
+  },
+  {
+    id: '4',
+    title: 'Wellness',
+    tag: 'OFF',
+    image: imagePath.TrendOneProduct,
+  },
+];
+
+export const fetchedProducts = [
+  {
+    id: '1',
+    name: "Johnson's Baby Pure Petroleum Jelly 250 Gm",
+    image: imagePath.ProductImageFirst,
+    category: 'Baby Products',
+    price: '0.90',
+    originalPrice: '1.000',
+    discount: '30% OFF',
+  },
+  {
+    id: '2',
+    name: "Johnson's Baby Bedtime Oil 300 ml",
+    image: imagePath.ProductImageSecond,
+    category: 'Baby Products',
+    price: '0.90',
+    originalPrice: '1.000',
+  },
+  {
+    id: '3',
+    name: "Johnson's Baby Bedtime Oil 300 ml",
+    image: imagePath.ProductImageFirst,
+    category: 'Baby Products',
+    price: '0.90',
+    originalPrice: '1.000',
+  },
+  {
+    id: '4',
+    name: "Johnson's Baby Pure Petroleum Jelly 250 Gm",
+    image: imagePath.ProductImageSecond,
+    category: 'Baby Products',
+    price: '0.90',
+    originalPrice: '1.000',
+    discount: '30% OFF',
+  },
+];

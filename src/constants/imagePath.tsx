@@ -5,7 +5,13 @@ export default {
   // Icons
   CameraIcon: require('../assets/icons/CameraIcon.png'),
   dropDown: require('../assets/icons/dropDown.png'),
+  discountIcon: require('../assets/icons/discountIcon.png'),
   searchIcon: require('../assets/icons/searchIcon.png'),
+  TrendingChartIcon: require('../assets/icons/TrendingChartIcon.png'),
+  rightArrowIcon: require('../assets/icons/rightArrowIcon.png'),
+  addCartBag: require('../assets/icons/addCartBag.png'),
+  Discountbadge: require('../assets/icons/Discountbadge.png'),
+  grayHeart: require('../assets/icons/grayHeart.png'),
 
   // Tabar icons
   category: require('../assets/icons/category.png'),
@@ -18,11 +24,9 @@ export default {
   wishlist: require('../assets/icons/wishlist.png'),
   wishlistSelected: require('../assets/icons/wishlistSelected.png'),
 
-
   // Background images
-  CategoryFirst:require('../assets/images/CategoryFirst.png'),
-  CategorySecond:require('../assets/images/CategorySecond.png'),
-
+  CategoryFirst: require('../assets/images/CategoryFirst.png'),
+  CategorySecond: require('../assets/images/CategorySecond.png'),
 
   // STATIC iMAGES
   Slider: {
@@ -33,4 +37,7 @@ export default {
   StaticFirst: require('../assets/images/staticImageOne.png'),
   StaticSecond: require('../assets/images/staticImageTwo.png'),
   StaticThird: require('../assets/images/staticImageThree.png'),
+  TrendOneProduct: require('../assets/images/TrendOneProduct.png'),
+  ProductImageFirst: require('../assets/images/ProductImageFirst.png'),
+  ProductImageSecond: require('../assets/images/ProductImageSecond.png'),
 };

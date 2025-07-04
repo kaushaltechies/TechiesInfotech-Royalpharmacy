@@ -7,3 +7,13 @@ export interface ProductItem {
 export interface ProductSection {
   products: ProductItem[];
 }
+
+export interface Product {
+  id: string;
+  name: string;
+  image: any;
+  category: string;
+  price: string;
+  originalPrice?: string;
+  discount?: string;
+}

@@ -28,11 +28,11 @@ interface CategoryCardProps {
 }
 const bgs = [imagePath.CategoryFirst, imagePath.CategorySecond];
 const screenWidth = Dimensions.get('window').width;
-const cardWidth = screenWidth * 0.33;
+const cardWidth = screenWidth * 0.32;
 const cardHeight = cardWidth * 0.79;
 const ProductHorizontalSection: React.FC<Props> = ({ data }) => {
   const bannerImage = getResponsiveImage('Slider');
-  const { scaleModerate, scaleText } = useDeviceMetrics();
+  const { scaleText } = useDeviceMetrics();
 
   const styles = useMemo(
     () =>
@@ -42,14 +42,13 @@ const ProductHorizontalSection: React.FC<Props> = ({ data }) => {
         },
         header: {
           paddingVertical: Sizes.s3,
-          paddingHorizontal: Sizes.s9,
           marginBottom: Sizes.s3,
         },
         imageStyle: {
           width: '100%',
         },
         listContainer: {
-          paddingLeft: Sizes.s9,
+          paddingLeft: Sizes.s2,
         },
         backgroundImage: {
           borderTopLeftRadius: Sizes.s3,
@@ -88,6 +87,7 @@ const ProductHorizontalSection: React.FC<Props> = ({ data }) => {
           fontSize: scaleText(14),
           fontWeight: '500',
           fontFamily: fontFamily.normal,
+          color: colors.black,
         },
       }),
     [scaleText],
@@ -100,8 +100,6 @@ const ProductHorizontalSection: React.FC<Props> = ({ data }) => {
         source={bgs[index % 2]}
         imageStyle={styles.backgroundImage}
       >
-        <LinearGradient colors={['#FFFFFF', '#A2936E']}></LinearGradient>
-
         <TouchableOpacity style={styles.imageContainer}>
           <Image
             source={item.image}

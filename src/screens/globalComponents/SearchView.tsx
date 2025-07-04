@@ -24,7 +24,6 @@ const SearchView: React.FC<any> = ({
   const styles = useMemo(
     () =>
       StyleSheet.create({
-        parent: {},
         container: {
           flexDirection: 'row',
           alignItems: 'center',
@@ -40,6 +39,8 @@ const SearchView: React.FC<any> = ({
           fontSize: scaleText(12),
           fontFamily: fontFamily.normal,
           color: colors.black,
+          alignItems: 'center',
+          justifyContent: 'center',
           paddingHorizontal: scaleModerate(10),
         },
         searchIcon: {
@@ -55,31 +56,28 @@ const SearchView: React.FC<any> = ({
   );
 
   return (
-    <View style={styles.parent}>
-      <View style={styles.container}>
-        <TouchableOpacity>
-          <Image
-            source={imagePath.searchIcon}
-            resizeMode="contain"
-            style={styles.searchIcon}
-          />
-        </TouchableOpacity>
-
-        <LocaleTextInput
-          placeHolder="searchHint"
-          style={styles.input}
-          textValue={text}
-          editable={editable}
-          handleChangeText={onTextChange}
+    <View style={styles.container}>
+      <TouchableOpacity>
+        <Image
+          source={imagePath.searchIcon}
+          resizeMode="contain"
+          style={styles.searchIcon}
         />
-        <TouchableOpacity>
-          <Image
-            source={imagePath.CameraIcon}
-            resizeMode="contain"
-            style={styles.CameraIcon}
-          />
-        </TouchableOpacity>
-      </View>
+      </TouchableOpacity>
+      <LocaleTextInput
+        placeHolder="searchHint"
+        style={styles.input}
+        textValue={text}
+        editable={editable}
+        handleChangeText={onTextChange}
+      />
+      <TouchableOpacity>
+        <Image
+          source={imagePath.CameraIcon}
+          resizeMode="contain"
+          style={styles.CameraIcon}
+        />
+      </TouchableOpacity>
     </View>
   );
 };

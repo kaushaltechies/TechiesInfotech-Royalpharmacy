@@ -62,7 +62,7 @@ const HeaderView: React.FC = () => {
         },
         bannerText: {
           color: colors.white,
-          fontSize: 14,
+          fontSize: scaleText(13.5),
           fontWeight: '500',
           textAlign: 'center',
           fontFamily: fontFamily.medium,
@@ -115,6 +115,12 @@ const HeaderView: React.FC = () => {
           color: colors.black,
           fontWeight: '500',
         },
+        itemTextStyle: {
+          fontSize: scaleText(15),
+          fontFamily: fontFamily.medium,
+          color: colors.black,
+          fontWeight: '500',
+        },
         iconStyle: {
           height: moderateScale(16),
           width: moderateScale(20),
@@ -143,6 +149,7 @@ const HeaderView: React.FC = () => {
             style={styles.dropdown}
             containerStyle={styles.dropdownContainer}
             selectedTextStyle={styles.selectedTextStyle}
+            itemTextStyle={styles.itemTextStyle}
             data={languageOptions}
             maxHeight={150}
             labelField="label"

@@ -65,7 +65,6 @@ export const Sizes = {
   vs11: vs(11),
   mvs11: mvs(11),
 
-
   // 12
   s12: s(12),
   ms12: ms(12),
@@ -95,6 +94,12 @@ export const Sizes = {
   ms16: ms(16),
   vs16: vs(16),
   mvs16: mvs(16),
+
+  // 17
+  s17: s(17),
+  ms17: ms(17),
+  vs17: vs(17),
+  mvs17: mvs(17),
 
   // 18
   s18: s(18),

@@ -12,6 +12,7 @@ export default {
   addCartBag: require('../assets/icons/addCartBag.png'),
   Discountbadge: require('../assets/icons/Discountbadge.png'),
   grayHeart: require('../assets/icons/grayHeart.png'),
+  trendingIcon: require('../assets/icons/trendingIcon.png'),
 
   // Tabar icons
   category: require('../assets/icons/category.png'),
@@ -40,4 +41,13 @@ export default {
   TrendOneProduct: require('../assets/images/TrendOneProduct.png'),
   ProductImageFirst: require('../assets/images/ProductImageFirst.png'),
   ProductImageSecond: require('../assets/images/ProductImageSecond.png'),
+  brandDemo1: require('../assets/images/brandDemo1.png'),
+  brandDemo2: require('../assets/images/brandDemo2.png'),
+  firstBanner: require('../assets/images/firstBanner.png'),
+  secondBannner: require('../assets/images/secondBannner.png'),
+  thirdBanner: require('../assets/images/thirdBanner.png'),
+  topforthBanner: require('../assets/images/topforthBanner.png'),
+  topfifthBanner: require('../assets/images/topfifthBanner.png'),
+  topsixthBanner: require('../assets/images/topsixthBanner.png'),
+
 };

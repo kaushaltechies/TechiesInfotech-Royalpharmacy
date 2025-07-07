@@ -1,5 +1,5 @@
 import imagePath from '../../constants/imagePath';
-import { ProductSection } from '../home/types';
+import { BrandItem, ProductSection } from '../home/types';
 
 export const Staticdata: ProductSection[] = [
   {
@@ -71,13 +71,13 @@ export const trendingDeals = [
     id: '1',
     title: 'MOM & Baby',
     tag: 'OFF',
-    image: imagePath.TrendOneProduct,
+    image: imagePath.StaticFirst,
   },
   {
     id: '2',
     title: 'Personal Care',
     tag: 'OFF',
-    image: imagePath.TrendOneProduct,
+    image: imagePath.StaticSecond,
   },
   {
     id: '3',
@@ -89,7 +89,7 @@ export const trendingDeals = [
     id: '4',
     title: 'Wellness',
     tag: 'OFF',
-    image: imagePath.TrendOneProduct,
+    image: imagePath.StaticThird,
   },
 ];
 
@@ -98,34 +98,80 @@ export const fetchedProducts = [
     id: '1',
     name: "Johnson's Baby Pure Petroleum Jelly 250 Gm",
     image: imagePath.ProductImageFirst,
-    category: 'Baby Products',
+    category: 'Baby',
     price: '0.90',
     originalPrice: '1.000',
-    discount: '30% OFF',
+    discount: '30%',
   },
   {
     id: '2',
     name: "Johnson's Baby Bedtime Oil 300 ml",
     image: imagePath.ProductImageSecond,
-    category: 'Baby Products',
+    category: 'Baby',
     price: '0.90',
     originalPrice: '1.000',
+    trending: imagePath.trendingIcon,
   },
   {
     id: '3',
     name: "Johnson's Baby Bedtime Oil 300 ml",
     image: imagePath.ProductImageFirst,
-    category: 'Baby Products',
+    category: 'Mother Care',
     price: '0.90',
     originalPrice: '1.000',
+    trending: imagePath.trendingIcon,
   },
   {
     id: '4',
     name: "Johnson's Baby Pure Petroleum Jelly 250 Gm",
     image: imagePath.ProductImageSecond,
-    category: 'Baby Products',
+    category: 'Baby',
     price: '0.90',
     originalPrice: '1.000',
-    discount: '30% OFF',
+    discount: '30%',
   },
+    {
+    id: '5',
+    name: "Johnson's Baby Pure Petroleum Jelly 250 Gm",
+    image: imagePath.ProductImageSecond,
+    category: 'Baby',
+    price: '0.90',
+    originalPrice: '1.000',
+    discount: '30%',
+  },
+    {
+    id: '6',
+    name: "Johnson's Baby Pure Petroleum Jelly 250 Gm",
+    image: imagePath.ProductImageSecond,
+    category: 'Baby Food',
+    price: '0.90',
+    originalPrice: '1.000',
+    discount: '30%',
+  },
+];
+
+
+export const dummyBrands: BrandItem[] = [
+  {
+    id: '1',
+    name: 'ACU-LIFE',
+    logo:imagePath.brandDemo1,
+  },
+  {
+    id: '2',
+    name: 'airplus',
+    logo: imagePath.brandDemo2,
+  },
+  {
+    id: '3',
+    name: 'Brand X',
+    logo: imagePath.brandDemo1,
+  },
+];
+
+export const productCategories = [
+  'Baby',
+  'Pregnancy & Breastfeeding',
+  'Mother Care',
+  'Baby Food',
 ];

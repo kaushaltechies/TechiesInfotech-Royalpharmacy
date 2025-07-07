@@ -18,6 +18,7 @@ import { getResponsiveImage } from '../../../styles/getResponsiveImage';
 import fontFamily from '../../../styles/fontFamily';
 import LinearGradient from 'react-native-linear-gradient';
 import useDeviceMetrics from '../../../styles/responsiveSize';
+import { moderateScale } from '../../../styles/utils';
 
 interface Props {
   data: ProductItem[];
@@ -43,6 +44,7 @@ const ProductHorizontalSection: React.FC<Props> = ({ data }) => {
         header: {
           paddingVertical: Sizes.s3,
           marginBottom: Sizes.s3,
+          paddingHorizontal: Sizes.s9,
         },
         imageStyle: {
           width: '100%',
@@ -75,6 +77,9 @@ const ProductHorizontalSection: React.FC<Props> = ({ data }) => {
           width: '100%',
           height: '100%',
         },
+        flatlistView: {
+          paddingHorizontal: Sizes.s9,
+        },
         textView: {
           width: '100%',
           backgroundColor: colors.white,
@@ -86,8 +91,11 @@ const ProductHorizontalSection: React.FC<Props> = ({ data }) => {
           textAlign: 'center',
           fontSize: scaleText(14),
           fontWeight: '500',
-          fontFamily: fontFamily.normal,
+          fontFamily: fontFamily.medium,
           color: colors.black,
+        },
+        gradientContainer: {
+          paddingBottom: moderateScale(20),
         },
       }),
     [scaleText],
@@ -117,23 +125,33 @@ const ProductHorizontalSection: React.FC<Props> = ({ data }) => {
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        <View style={styles.header}>
-          <Image
-            source={bannerImage}
-            resizeMode="contain"
-            style={styles.imageStyle}
-          />
-        </View>
-        <FlatList
-          horizontal
-          data={data}
-          keyExtractor={item => item.id}
-          renderItem={({ item, index }) => (
-            <CategoryCard item={item} index={index} />
-          )}
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.listContainer}
-        />
+        <LinearGradient
+          colors={['rgba(255, 255, 255, 0.1)', 'rgba(162, 147, 110, 0.1)']}
+          locations={[0, 0.2359]}
+          start={{ x: 0.5, y: 0 }}
+          end={{ x: 0.5, y: 1 }}
+          style={styles.gradientContainer}
+        >
+          <View style={styles.header}>
+            <Image
+              source={bannerImage}
+              resizeMode="contain"
+              style={styles.imageStyle}
+            />
+          </View>
+          <View style={styles.flatlistView}>
+            <FlatList
+              horizontal
+              data={data}
+              keyExtractor={item => item.id}
+              renderItem={({ item, index }) => (
+                <CategoryCard item={item} index={index} />
+              )}
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={styles.listContainer}
+            />
+          </View>
+        </LinearGradient>
       </View>
     </SafeAreaView>
   );

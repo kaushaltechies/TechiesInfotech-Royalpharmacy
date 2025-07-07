@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   View,
   Text,
@@ -6,6 +6,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   Image,
+  ViewToken,
 } from 'react-native';
 import ProductCard from './ProductCard';
 import imagePath from '../../../constants/imagePath';
@@ -16,15 +17,32 @@ import fontFamily from '../../../styles/fontFamily';
 import { isTablet } from 'react-native-device-info';
 import { fetchedProducts } from '../../staticData/Staticdata';
 import { Product } from '../types';
+import LinearGradient from 'react-native-linear-gradient';
+import { moderateScale } from 'react-native-size-matters';
 
 const TrendingProducts: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
   useEffect(() => {
     setProducts(fetchedProducts);
   }, []);
 
+  const viewabilityConfig = {
+    itemVisiblePercentThreshold: 50,
+  };
+
+  const onViewableItemsChanged = useRef(
+    ({ viewableItems }: { viewableItems: Array<ViewToken> }) => {
+      if (viewableItems.length > 0) {
+        setCurrentIndex(viewableItems[0].index ?? 0);
+      }
+    },
+  ).current;
   return (
-    <View style={styles.container}>
+    <LinearGradient
+      colors={[colors.filterGrey, colors.white]}
+      style={styles.container}
+    >
       <View style={styles.headerRow}>
         <View style={styles.headingView}>
           <Image
@@ -51,22 +69,34 @@ const TrendingProducts: React.FC = () => {
         )}
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.listContainer}
+        onViewableItemsChanged={onViewableItemsChanged}
+        viewabilityConfig={viewabilityConfig}
       />
-    </View>
+      <View style={styles.dotContainer}>
+        {products.map((_, index) => (
+          <View
+            key={index}
+            style={[
+              styles.dot,
+              index === currentIndex ? styles.activeDot : styles.inactiveDot,
+            ]}
+          />
+        ))}
+      </View>
+    </LinearGradient>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     paddingVertical: Sizes.s10,
-    backgroundColor: colors.gray,
   },
   headerRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: Sizes.s3,
-    marginBottom: Sizes.s7,
+    marginTop: Sizes.s5,
+    marginBottom: Sizes.s9,
     paddingHorizontal: Sizes.s9,
   },
   headingView: {
@@ -102,6 +132,25 @@ const styles = StyleSheet.create({
   },
   listContainer: {
     paddingHorizontal: Sizes.s2,
+  },
+  dotContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: moderateScale(25),
+    marginBottom: moderateScale(10),
+  },
+  dot: {
+    width: moderateScale(24),
+    height: moderateScale(2.5),
+    borderRadius: moderateScale(4),
+    marginHorizontal: moderateScale(4),
+  },
+  activeDot: {
+    backgroundColor: colors.sliderGray,
+  },
+  inactiveDot: {
+    backgroundColor: colors.sliderLigtGray,
   },
 });
 

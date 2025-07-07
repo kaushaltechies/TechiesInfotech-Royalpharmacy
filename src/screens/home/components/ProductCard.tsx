@@ -15,13 +15,13 @@ import colors from '../../../styles/colors';
 import fontFamily from '../../../styles/fontFamily';
 import { Sizes } from '../../../styles/Sizes';
 import strings from '../../../localization/strings';
+import { moderateScale } from '../../../styles/utils';
 
 interface Props {
   product: Product;
   onPress: () => void;
   isGrid?: boolean;
 }
-
 const ProductCard: React.FC<Props> = ({ product, onPress, isGrid = false }) => {
   const screenWidth = Dimensions.get('window').width;
   const tablet = DeviceInfo.isTablet();
@@ -39,15 +39,32 @@ const ProductCard: React.FC<Props> = ({ product, onPress, isGrid = false }) => {
       <View style={styles.borderImage}>
         <View style={styles.childContainer}>
           {product.discount && (
-            <ImageBackground
-              style={styles.discountBadge}
-              source={imagePath.Discountbadge}
-              resizeMode="contain"
-            >
-              <Text style={styles.discountText}>{product.discount}</Text>
-            </ImageBackground>
+            <View style={styles.discountView}>
+              <ImageBackground
+                style={styles.discountBadge}
+                source={imagePath.Discountbadge}
+                resizeMode="contain"
+              >
+                <View style={styles.textWrapper}>
+                  <Text
+                    style={styles.discountPercent}
+                    numberOfLines={1}
+                    ellipsizeMode="tail"
+                  >
+                    {product.discount}
+                  </Text>
+                  <Text
+                    style={styles.discountOff}
+                    numberOfLines={1}
+                    ellipsizeMode="tail"
+                  >
+                    {strings.OFF}{' '}
+                  </Text>
+                </View>
+              </ImageBackground>
+            </View>
           )}
-          <TouchableOpacity>
+          <TouchableOpacity style={styles.iconView}>
             <Image source={imagePath.grayHeart} resizeMode="contain" />
           </TouchableOpacity>
         </View>
@@ -57,6 +74,17 @@ const ProductCard: React.FC<Props> = ({ product, onPress, isGrid = false }) => {
           style={[styles.image, tablet && { height: 140 }]}
           resizeMode="contain"
         />
+        <View style={styles.trendingBadge}>
+          <View style={styles.flashIconView}>
+            <Image
+              source={imagePath.trendingIcon}
+              style={styles.flashIcon}
+              resizeMode="contain"
+            />
+          </View>
+
+          <Text style={styles.trendingText}>{strings.TRENDING}</Text>
+        </View>
       </View>
 
       <Text style={[styles.category, tablet && styles.tabletText]}>
@@ -70,13 +98,13 @@ const ProductCard: React.FC<Props> = ({ product, onPress, isGrid = false }) => {
       </Text>
 
       <View style={styles.priceRow}>
-        <View style={styles.priceView}>
+        <View style={styles.priceViewFirst}>
           <Text style={[styles.price, tablet && styles.tabletText]}>
             {product.price} {strings.KWD}
           </Text>
         </View>
         {product.originalPrice && (
-          <View style={styles.priceView}>
+          <View style={styles.priceViewSecond}>
             <Text style={[styles.originalPrice, tablet && styles.tabletText]}>
               {product.originalPrice} {strings.KWD}
             </Text>
@@ -107,7 +135,8 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   borderImage: {
-    paddingVertical: Sizes.s12,
+    paddingTop: Sizes.s26,
+    paddingBottom: Sizes.s10,
     borderRadius: Sizes.s7,
     borderWidth: 1,
     borderColor: colors.buttonDisabled,
@@ -119,56 +148,118 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     position: 'absolute',
-    left: 8,
-    right: 8,
+    left: 1,
+    right: 7,
     zIndex: 2,
+  },
+  discountView: {
+    width: '50%',
+  },
+  trendingBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    alignSelf: 'flex-start',
+    marginLeft: moderateScale(5),
+    backgroundColor: colors.darkgray,
+    paddingHorizontal: moderateScale(9),
+    paddingVertical: moderateScale(3),
+    borderRadius: moderateScale(5),
+  },
 
+  flashIconView: {
+    width: '10%',
+    height: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontWeight: '700',
+    fontFamily: fontFamily.bold,
+  },
+  flashIcon: {
+    width: '100%',
+    height: '72%',
+  },
+  trendingText: {
+    fontWeight: '500',
+    fontFamily: fontFamily.bold,
+    color: colors.black,
+    fontSize: moderateScale(12),
+  },
+  iconView: {
+    flex: 1,
+    alignItems: 'flex-end',
+    marginTop: moderateScale(3),
   },
   discountBadge: {
     height: 50,
-    width: 50,
-    // position: 'absolute',
+    width: 38,
+    alignItems: 'center',
+    overflow: 'hidden',
   },
-  discountText: {
-    color: colors.primary,
-    fontSize: 10,
-    fontWeight: 'bold',
+  textWrapper: {
+    alignItems: 'center',
+    width: 35,
+    justifyContent: 'center',
+    marginTop: moderateScale(5.5),
+  },
+  discountPercent: {
+    color: colors.primarySecond,
+    fontSize: 12,
+    fontWeight: '700',
+    fontFamily: fontFamily.bold,
+    textAlign: 'center',
+  },
+  discountOff: {
+    color: colors.primarySecond,
+    fontSize: 11,
+    fontWeight: '700',
+    fontFamily: fontFamily.bold,
+    textAlign: 'center',
   },
   image: {
     width: '100%',
-    height: 100,
+    height: 110,
     alignSelf: 'center',
     marginBottom: 8,
   },
   category: {
     color: colors.primary,
-    fontSize: 12,
-    marginBottom: 2,
+    fontSize: moderateScale(13),
+    fontFamily: fontFamily.medium,
+    marginBottom: moderateScale(5),
+    fontWeight: '500',
+    textAlign: 'left',
   },
-  priceView: {
+  priceViewFirst: {
     width: '50%',
+    alignItems: 'flex-start',
+  },
+  priceViewSecond: {
+    width: '50%',
+    alignItems: 'flex-end',
   },
   name: {
     fontWeight: '600',
-    fontSize: 13,
-    marginBottom: 4,
+    fontSize: moderateScale(14),
+    fontFamily: fontFamily.semiBold,
     color: colors.black,
+    marginBottom: moderateScale(5),
+    textAlign: 'left',
   },
   priceRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 6,
+    marginBottom: moderateScale(12),
   },
   price: {
-    fontWeight: 'bold',
-    fontSize: 14,
+    fontWeight: '600',
+    fontSize: moderateScale(14),
     color: colors.black,
+    fontFamily: fontFamily.semiBold,
   },
   originalPrice: {
     fontSize: 12,
     textDecorationLine: 'line-through',
-    color: '#999',
-    marginLeft: 8,
+    color: colors.textgray,
   },
   button: {
     flexDirection: 'row',
@@ -181,14 +272,14 @@ const styles = StyleSheet.create({
   buttonText: {
     color: colors.black,
     textAlign: 'center',
-    fontSize: 13,
+    fontSize: moderateScale(13.5),
     fontWeight: '700',
     fontFamily: fontFamily.bold,
-    marginLeft: 6,
+    marginLeft: moderateScale(6),
   },
   cartIcon: {
-    width: 18.5,
-    height: 18.5,
+    width: 19,
+    height: 19,
   },
   tabletText: {
     fontSize: 16,

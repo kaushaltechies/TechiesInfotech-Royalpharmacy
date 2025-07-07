@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginTop: Sizes.s3,
-    marginBottom: Sizes.s7,
+    marginBottom: Sizes.s9,
   },
   headingView: {
     width: '56%',
@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontFamily: fontFamily.bold,
     color: colors.black,
+    textAlign: 'left',
   },
   viewMore: {
     fontSize: Sizes.s14,

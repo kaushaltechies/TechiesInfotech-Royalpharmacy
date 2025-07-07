@@ -8,6 +8,10 @@ const ar = {
   TRENDING_PRODUCTS: 'Trending Products',
   KWD: 'KWD',
   ADD_TO_CART: 'Add to cart',
+  TRENDING: 'Trending',
+  OFF: 'OFF',
+  SHOP_BY_BRAND: 'Shop by Brand',
+  NO_PRODUCT_AVAILABLE: 'No products available!',
 };
 
 export default ar;

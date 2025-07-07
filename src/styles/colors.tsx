@@ -1,8 +1,10 @@
 export default {
   primary: '#6D211C',
+  primarySecond:'#900B09',
   primaryDark: '#001A70',
   checkoutPrimary: '#8347AD',
   borderGrey: '#D1D1D1',
+  Tapselect:"#811A1E",
   white: '#FFFFFF',
   black: '#000000',
   offBlack: '#777',
@@ -26,6 +28,10 @@ export default {
   // review Colors
   reviewText: '#555555',
   badgeLightGreen: '#E7FFDC',
+  darkgray:'#EEEEEE',
+  sliderGray:"#4C4C4C",
+  sliderLigtGray:"#AAAAAA",
+  textgray:'#8A8A8A',
 
   red: 'F60000',
   lightRed: '#FFEEEE',
@@ -39,4 +45,8 @@ export default {
   // LinearGradient color
   TrendingcColorSecond: '#e5dfd5',
   TrendingcColorThird: '#e5dfd5',
+  lightWhite:"#faf9f7",
+  lightwhiteSecond:"#ede9e3",
+  lightWhiteThird:'#c7baa5',
+  lightWhiteForth:"#e6e0d7"
 };

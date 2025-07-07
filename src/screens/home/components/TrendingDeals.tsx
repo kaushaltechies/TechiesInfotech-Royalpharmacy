@@ -24,9 +24,14 @@ const TrendingDeals = () => {
     <LinearGradient
       colors={[
         colors.white,
-        colors.TrendingcColorSecond,
-        colors.TrendingcColorThird,
+        colors.lightWhite,
+        colors.lightwhiteSecond,
+        colors.lightWhiteThird,
+        colors.lightWhiteForth,
       ]}
+      locations={[0.01, 0.45, 0.78, 0.99, 1]}
+      start={{ x: 0.5, y: 0 }}
+      end={{ x: 0.5, y: 1 }}
       style={styles.card}
     >
       <View style={styles.contentView}>
@@ -56,7 +61,10 @@ const TrendingDeals = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{strings.TRENDING_DEALS_JUST_FOR_YOU}</Text>
+      <View style={styles.titleView}>
+        <Text style={styles.title}>{strings.TRENDING_DEALS_JUST_FOR_YOU}</Text>
+      </View>
+
       <FlatList
         data={trendingDeals}
         renderItem={renderItem}
@@ -74,11 +82,16 @@ export default TrendingDeals;
 
 const styles = StyleSheet.create({
   container: {},
+  titleView: {
+    marginTop: Sizes.s18,
+    marginBottom: Sizes.s15,
+  },
   title: {
     fontSize: Sizes.s18,
     fontWeight: '700',
-    marginBottom: Sizes.s15,
+
     textAlign: 'center',
+    color: colors.black,
     fontFamily: fontFamily.bold,
   },
   listContent: {

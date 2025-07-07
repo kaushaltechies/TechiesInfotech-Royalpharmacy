@@ -17,3 +17,18 @@ export interface Product {
   originalPrice?: string;
   discount?: string;
 }
+
+export interface BrandItem {
+  id: string;
+  name: string;
+  logo: any;
+}
+
+export interface FirstBannerProductsProps {
+  topBanner?: any;
+  bottomBanner?: any;
+  topthirdBanner?: any;
+  topforthBanner?: any;
+  topfifthBanner?: any;
+  topsixthBanner?: any;
+}

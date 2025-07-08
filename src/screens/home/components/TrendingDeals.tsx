@@ -29,7 +29,7 @@ const TrendingDeals = () => {
         colors.lightWhiteThird,
         colors.lightWhiteForth,
       ]}
-      locations={[0.01, 0.45, 0.78, 0.99, 1]}
+      locations={[0.01, 0.45, 0.78, 1, 2]}
       start={{ x: 0.5, y: 0 }}
       end={{ x: 0.5, y: 1 }}
       style={styles.card}
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
   card: {
     borderWidth: 1,
     borderColor: colors.lightGray,
-    borderRadius: Sizes.s7,
+    borderRadius: Sizes.s5,
     width: CARD_WIDTH,
     shadowColor: colors.lightGray,
     shadowOffset: { width: 0, height: 1 },
@@ -115,6 +115,7 @@ const styles = StyleSheet.create({
   },
   contentView: {
     padding: Sizes.s10,
+    borderRadius: Sizes.s5,
   },
   discountImage: {
     width: isTablet() ? 25 : 20,
@@ -153,6 +154,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     textAlign: 'center',
     fontFamily: fontFamily.bold,
+    color: colors.black,
   },
   exploreButton: {
     backgroundColor: colors.primary,

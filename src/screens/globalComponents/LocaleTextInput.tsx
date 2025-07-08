@@ -46,7 +46,6 @@ const LocaleTextInput: React.FC<LocaleTextProps> = ({
         numberOfLines={lines}
         editable={editable}
         value={textValue}
-        textAlignVertical="top"
         onChangeText={handleChangeText}
       />
     </View>
